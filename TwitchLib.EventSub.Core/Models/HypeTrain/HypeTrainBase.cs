@@ -8,6 +8,10 @@ namespace TwitchLib.EventSub.Core.Models.HypeTrain;
 public class HypeTrainBase
 {
     /// <summary>
+    /// The event ID.
+    /// </summary>
+    public string Id { get; set; } = string.Empty;
+    /// <summary>
     /// The requested broadcaster ID.
     /// </summary>
     public string BroadcasterUserId { get; set; } = string.Empty;
