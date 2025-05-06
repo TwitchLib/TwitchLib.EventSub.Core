@@ -39,4 +39,8 @@ public class HypeTrainBase
     /// The current level of the Hype Train.
     /// </summary>
     public int Level { get; set; }
+    /// <summary>
+    /// Indicates if the Hype Train is a Golden Kappa Train.
+    /// </summary>
+    public bool IsGoldenKappaTrain { get; set; }
 }
