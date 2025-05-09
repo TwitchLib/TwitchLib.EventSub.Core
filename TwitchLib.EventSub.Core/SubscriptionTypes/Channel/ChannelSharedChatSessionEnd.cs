@@ -1,5 +1,3 @@
-using System;
-using TwitchLib.EventSub.Core.Models.GuestStar;
 using TwitchLib.EventSub.Core.Models.SharedChat;
 
 namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel;

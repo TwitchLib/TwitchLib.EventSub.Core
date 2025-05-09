@@ -7,6 +7,8 @@ namespace TwitchLib.EventSub.Core.Models.Chat;
 /// </summary>
 public sealed class ChatPayItForward
 {
+    // RecipientUser**** isn't in docs https://github.com/TwitchLib/TwitchLib.EventSub.Core/pull/20
+
     /// <summary>
     /// Optional. The user ID of the user who received the subscription. Null if not available at the time of event trigger.
     /// </summary>
