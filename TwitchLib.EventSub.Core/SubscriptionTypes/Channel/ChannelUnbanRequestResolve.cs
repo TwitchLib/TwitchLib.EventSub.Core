@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel
+﻿namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel
 {
     /// <summary>
     /// Channel Unban Request Resolve subscription type model
