@@ -61,39 +61,47 @@ namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel
         /// </summary>
         public ChatCheer? Cheer { get; set; }
 
-        /// <summary>Metadata if this message is a reply.</summary>
+        /// <summary>
+        /// Metadata if this message is a reply.
+        /// </summary>
         public ChatReply? Reply { get; set; }
 
         /// <summary>
         /// Optional. The ID of a channel points custom reward that was redeemed.
         /// </summary>
-        public string? ChannelPointsCustomRewardId { get; set; } = string.Empty;
+        public string? ChannelPointsCustomRewardId { get; set; }
 
         /// <summary>
         /// Optional. The broadcaster user ID of the channel the message was sent from.
         /// </summary>
-        public string? SourceBroadcasterUserId { get; set; } = string.Empty;
+        public string? SourceBroadcasterUserId { get; set; }
 
         /// <summary>
         /// Optional. The user name of the broadcaster of the channel the message was sent from.
         /// </summary>
-        public string? SourceBroadcasterUserName {  get; set; } = string.Empty;
+        public string? SourceBroadcasterUserName {  get; set; }
 
         /// <summary>
         /// Optional. The login of the broadcaster of the channel the message was sent from. 
         /// </summary>
-        public string? SourceBroadcasterUserLogin {  get; set; } = string.Empty;
+        public string? SourceBroadcasterUserLogin {  get; set; }
 
         /// <summary>
         /// Optional. The UUID that identifies the source message from the channel the message was sent from.
         /// </summary>
-        public string? SourceMessageId {  get; set; } = string.Empty;
+        public string? SourceMessageId {  get; set; }
 
         /// <summary>
         /// Optional. The list of chat badges for the chatter in the channel the message was sent from. 
         /// </summary>
-        public ChatBadge[]? SourceBadges { get; set; } = [];
+        public ChatBadge[]? SourceBadges { get; set; }
 
+        /// <summary>
+        /// Optional. Determines if a message delivered during a shared chat session is only sent to the source channel.
+        /// Has no effect if the message is not sent during a shared chat session.
+        /// </summary>
+        public bool? IsSourceOnly { get; set; }
+      
         /// <summary>
         /// Returns true if viewer is a subscriber
         /// </summary>
