@@ -4,6 +4,11 @@ using TwitchLib.EventSub.Core.Models.Chat;
 
 namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel
 {
+    /// <summary>
+    /// Channel Chat Message subscription type model
+    /// <para>Description:</para>
+    /// <para>Any user sends a message to a channel’s chat room.</para>
+    /// </summary>
     public sealed class ChannelChatMessage
     {
         /// <summary>
