@@ -5,19 +5,19 @@
 	  <PackageId>TwitchLib.EventSub.Core</PackageId>
 	  <Title>TwitchLib.EventSub.Core</Title>
 	  <Authors>swiftyspiffy, Prom3theu5, Syzuna, LuckyNoS7evin</Authors>
-	  <VersionPrefix>2.5.2</VersionPrefix>
+	  <VersionPrefix>2.6.0</VersionPrefix>
 	  <VersionSuffix>$(VersionSuffix)</VersionSuffix>
-	  <AssemblyVersion>2.5.2</AssemblyVersion>
-	  <FileVersion>2.5.2</FileVersion>
+	  <AssemblyVersion>2.6.0</AssemblyVersion>
+	  <FileVersion>2.6.0</FileVersion>
 	  <Description>Contains Subscription Types and Models for Twitch's EventSub system</Description>
 	  <PackageIconUrl>https://cdn.syzuna-programs.de/images/twitchlib.png</PackageIconUrl>
 	  <PackageProjectUrl>https://github.com/TwitchLib/TwitchLib.EventSub.Websockets</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/TwitchLib/TwitchLib.EventSub.Websockets</RepositoryUrl>
 	  <RepositoryType>Git</RepositoryType>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <Copyright>Copyright 2023</Copyright>
+	  <Copyright>Copyright 2025</Copyright>
 	  <PackageTags>twitch library events eventsub subscriptiontypes c# csharp net netstandard2.0 netstandard2.1 5.0 6.0 7.0 8.0</PackageTags>
-	  <PackageReleaseNotes>Fixed Channel Chat Notification PayItFoward</PackageReleaseNotes>
+	  <PackageReleaseNotes>improved nullable annotation, added new properties, added new SubscriptionTypes (ChannelPointsAutomaticRewardRedemption, ChannelSharedChatSessionBegin, ChannelSharedChatSessionEnd, ChannelSharedChatSessionUpdate, ChannelSuspiciousUserMessage, ChannelSuspiciousUserUpdate, ChannelUnbanRequestCreate, ChannelUnbanRequestResolve, ChannelVip, ChannelWarningAcknowledge, ChannelWarningSend, UserWhisperMessage)</PackageReleaseNotes>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <NeutralLanguage>en-US</NeutralLanguage>
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>

@@ -4,6 +4,11 @@ using TwitchLib.EventSub.Core.Models.Chat;
 
 namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel
 {
+    /// <summary>
+    /// Channel Chat Message subscription type model
+    /// <para>Description:</para>
+    /// <para>Any user sends a message to a channel’s chat room.</para>
+    /// </summary>
     public sealed class ChannelChatMessage
     {
         /// <summary>
@@ -52,6 +57,8 @@ namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel
         /// <para>channel_points_highlighted</para>
         /// <para>channel_points_sub_only</para>
         /// <para>user_intro</para>
+        /// <para>power_ups_message_effect</para>
+        /// <para>power_ups_gigantified_emote</para>
         public string MessageType { get; set; } = string.Empty;
 
         /// <summary>
@@ -59,18 +66,51 @@ namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel
         /// </summary>
         public ChatCheer? Cheer { get; set; }
 
-        /// <summary>Metadata if this message is a reply.</summary>
+        /// <summary>
+        /// Metadata if this message is a reply.
+        /// </summary>
         public ChatReply? Reply { get; set; }
 
         /// <summary>
         /// Optional. The ID of a channel points custom reward that was redeemed.
         /// </summary>
-        public string ChannelPointsCustomRewardId { get; set; } = string.Empty;
+        public string? ChannelPointsCustomRewardId { get; set; }
 
+        /// <summary>
+        /// Optional. The broadcaster user ID of the channel the message was sent from.
+        /// </summary>
+        public string? SourceBroadcasterUserId { get; set; }
+
+        /// <summary>
+        /// Optional. The user name of the broadcaster of the channel the message was sent from.
+        /// </summary>
+        public string? SourceBroadcasterUserName {  get; set; }
+
+        /// <summary>
+        /// Optional. The login of the broadcaster of the channel the message was sent from. 
+        /// </summary>
+        public string? SourceBroadcasterUserLogin {  get; set; }
+
+        /// <summary>
+        /// Optional. The UUID that identifies the source message from the channel the message was sent from.
+        /// </summary>
+        public string? SourceMessageId {  get; set; }
+
+        /// <summary>
+        /// Optional. The list of chat badges for the chatter in the channel the message was sent from. 
+        /// </summary>
+        public ChatBadge[]? SourceBadges { get; set; }
+
+        /// <summary>
+        /// Optional. Determines if a message delivered during a shared chat session is only sent to the source channel.
+        /// Has no effect if the message is not sent during a shared chat session.
+        /// </summary>
+        public bool? IsSourceOnly { get; set; }
+      
         /// <summary>
         /// Returns true if viewer is a subscriber
         /// </summary>
-        public bool IsSubscriber => Badges.Any(x => x.SetId.Equals("subscriber", StringComparison.OrdinalIgnoreCase));
+        public bool IsSubscriber => Badges.Any(x => x.SetId.Equals("subscriber", StringComparison.OrdinalIgnoreCase) || x.SetId.Equals("founder", StringComparison.OrdinalIgnoreCase));
         /// <summary>
         /// Returns true if viewer is a moderator
         /// </summary>
@@ -83,5 +123,9 @@ namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel
         /// Returns true if viewer is a vip
         /// </summary>
         public bool IsVip => Badges.Any(x => x.SetId.Equals("vip", StringComparison.OrdinalIgnoreCase));
+        /// <summary>
+        /// Returns true if viewer is a staff member
+        /// </summary>
+        public bool IsStaff => Badges.Any(x => x.SetId.Equals("staff", StringComparison.OrdinalIgnoreCase) || x.SetId.Equals("admin", StringComparison.OrdinalIgnoreCase));
     }
 }
