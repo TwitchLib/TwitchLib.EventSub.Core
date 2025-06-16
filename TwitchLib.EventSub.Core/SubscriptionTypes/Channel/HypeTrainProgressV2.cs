@@ -57,16 +57,6 @@ public sealed class HypeTrainProgressV2
     public int Level { get; set; }
 
     /// <summary>
-    /// The all-time high level this type of Hype Train has reached for this broadcaster.
-    /// </summary>
-    public int AllTimeHighLevel { get; set; }
-
-    /// <summary>
-    /// The all-time high total this type of Hype Train has reached for this broadcaster.
-    /// </summary>
-    public int AllTimeHighTotal { get; set; }
-
-    /// <summary>
     /// Non-null for a shared Hype Train. Contains the list of broadcasters in the shared Hype Train.
     /// </summary>
     public SharedTrainParticipants[]? SharedTrainParticipants { get; set; }
