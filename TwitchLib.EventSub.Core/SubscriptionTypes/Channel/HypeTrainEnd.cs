@@ -8,6 +8,8 @@ namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel;
 /// <para>Description:</para>
 /// <para>A Hype Train ends on the specified channel.</para>
 /// </summary>
+[Obsolete("This subscription type is deprecated (2025‑06‑13). Use HypeTrainEndV2 instead.")]
+
 public sealed class HypeTrainEnd : HypeTrainBase
 {
     /// <summary>

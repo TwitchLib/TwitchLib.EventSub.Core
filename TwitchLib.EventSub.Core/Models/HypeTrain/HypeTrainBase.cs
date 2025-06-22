@@ -5,6 +5,7 @@ namespace TwitchLib.EventSub.Core.Models.HypeTrain;
 /// <summary>
 /// HypeTrain base class
 /// </summary>
+[Obsolete("This type is deprecated (2025‑06‑13).")]
 public class HypeTrainBase
 {
     /// <summary>
