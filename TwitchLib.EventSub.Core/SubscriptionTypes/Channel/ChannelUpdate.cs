@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel;
+﻿namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel;
 
 /// <summary>
 /// Channel Update subscription type model
@@ -37,11 +35,6 @@ public sealed class ChannelUpdate
     /// The channel’s category name.
     /// </summary>
     public string CategoryName { get; set; } = string.Empty;
-    /// <summary>
-    /// A boolean identifying whether the channel is flagged as mature.
-    /// </summary>
-    [Obsolete("Removed 2023‑06‑29, please use: ContentClassificationLabels")]
-    public bool IsMature { get; set; }
     /// <summary>
     /// Array of content classification label IDs currently applied on the Channel.
     /// To retrieve a list of all possible IDs, use the <see href="https://dev.twitch.tv/docs/api/reference/#get-content-classification-labels">Get Content Classification Labels</see> API endpoint.
