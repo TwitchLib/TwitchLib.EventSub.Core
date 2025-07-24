@@ -47,11 +47,11 @@ public sealed class AutomodMessageHold
     /// </summary>
     public string Category { get; set; } = string.Empty;
     /// <summary>
-    /// The category of the message.
+    /// The level of severity. Measured between 1 to 4.
     /// </summary>
     public int Level { get; set; }
     /// <summary>
-    /// The category of the message.
+    /// The time of when automod saved the message.
     /// </summary>
     public DateTimeOffset HeldAt { get; set; }
 }

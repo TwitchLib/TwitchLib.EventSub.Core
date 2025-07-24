@@ -1,11 +1,11 @@
 ﻿namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel;
 
 /// <summary>
-/// Channel Chat Clear User Message subscription type model
+/// Channel Chat Clear User Messages subscription type model
 /// <para>Description:</para>
 /// <para>A moderator or bot clears all messages for a specific user.</para>
 /// </summary>
-public sealed class ChannelChatClearUserMessage
+public sealed class ChannelChatClearUserMessages
 {
     /// <summary>
     /// The broadcaster user ID.
