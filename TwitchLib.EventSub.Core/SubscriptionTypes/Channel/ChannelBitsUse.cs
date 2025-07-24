@@ -3,11 +3,11 @@
 namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel;
 
 /// <summary>
-/// Channel Bit Use subscription type model
+/// Channel Bits Use subscription type model
 /// <para>Description:</para>
 /// <para></para>
 /// </summary>
-public sealed class ChannelBitUse
+public sealed class ChannelBitsUse
 {
     /// <summary>
     /// The User ID of the channel where the Bits were redeemed.
