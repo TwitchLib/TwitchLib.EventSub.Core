@@ -1,4 +1,5 @@
 ﻿using System;
+using TwitchLib.EventSub.Core.Models.Automod;
 
 namespace TwitchLib.EventSub.Core.SubscriptionTypes.Automod;
 
@@ -41,7 +42,7 @@ public sealed class AutomodMessageHold
     /// <summary>
     /// The body of the message.
     /// </summary>
-    public int[] Message { get; set; } = [];
+    public Message Message { get; set; } = new();
     /// <summary>
     /// The category of the message.
     /// </summary>

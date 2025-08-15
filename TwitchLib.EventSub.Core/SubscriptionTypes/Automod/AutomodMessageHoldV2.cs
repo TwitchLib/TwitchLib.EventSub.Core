@@ -41,7 +41,7 @@ public sealed class AutomodMessageHoldV2
     /// <summary>
     /// The body of the message.
     /// </summary>
-    public int[] Message { get; set; } = [];
+    public Message Message { get; set; } = new();
     /// <summary>
     /// The category of the message.
     /// </summary>
