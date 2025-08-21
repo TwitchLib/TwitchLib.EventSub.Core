@@ -45,7 +45,7 @@ public sealed class ChannelPointsAutomaticRewardRedemptionV2
     /// <summary>
     /// An object that contains the user message and emote information needed to recreate the message.
     /// </summary>
-    public string? Message { get; set; }
+    public AutomaticRedemptionRewardV2Message? Message { get; set; }
     /// <summary>
     /// The UTC date and time of when the reward was redeemed.
     /// </summary>
