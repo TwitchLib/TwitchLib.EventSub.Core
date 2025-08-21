@@ -55,6 +55,7 @@ public class Subscription
     public static Subscription ChannelGuestStarSessionEnd { get; } = new("channel.guest_star_session.end", "beta");
     public static Subscription ChannelGuestStarGuestUpdate { get; } = new("channel.guest_star_guest.update", "beta");
     public static Subscription ChannelGuestStarSettingsUpdate { get; } = new("channel.guest_star_settings.update", "beta");
+    public static Subscription ChannelPointsAutomaticRewardRedemptionAdd { get; } = new("channel.channel_points_automatic_reward_redemption.add", "1");
     public static Subscription ChannelPointsAutomaticRewardRedemptionAddV2 { get; } = new("channel.channel_points_automatic_reward_redemption.add", "2");
     public static Subscription ChannelPointsCustomRewardAdd { get; } = new("channel.channel_points_custom_reward.add", "1");
     public static Subscription ChannelPointsCustomRewardUpdate { get; } = new("channel.channel_points_custom_reward.update", "1");
