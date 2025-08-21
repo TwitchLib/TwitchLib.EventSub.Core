@@ -21,7 +21,7 @@ public sealed class AutomodMessageHold
     /// <summary>
     /// The user name of the broadcaster specified in the request.
     /// </summary>
-    public string BroadcasterUseName { get; set; } = string.Empty;
+    public string BroadcasterUserName { get; set; } = string.Empty;
     /// <summary>
     /// The message sender’s user ID.
     /// </summary>

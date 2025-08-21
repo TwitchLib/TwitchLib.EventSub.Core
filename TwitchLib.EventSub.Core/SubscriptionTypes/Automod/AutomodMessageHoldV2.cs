@@ -21,7 +21,7 @@ public sealed class AutomodMessageHoldV2
     /// <summary>
     /// The user name of the broadcaster specified in the request.
     /// </summary>
-    public string BroadcasterUseName { get; set; } = string.Empty;
+    public string BroadcasterUserName { get; set; } = string.Empty;
     /// <summary>
     /// The message sender’s user ID.
     /// </summary>
@@ -42,14 +42,6 @@ public sealed class AutomodMessageHoldV2
     /// The body of the message.
     /// </summary>
     public Message Message { get; set; } = new();
-    /// <summary>
-    /// The category of the message.
-    /// </summary>
-    public string Category { get; set; } = string.Empty;
-    /// <summary>
-    /// The level of severity. Measured between 1 to 4.
-    /// </summary>
-    public int Level { get; set; }
     /// <summary>
     /// The time of when automod saved the message.
     /// </summary>
