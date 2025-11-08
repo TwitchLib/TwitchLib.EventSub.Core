@@ -10,7 +10,7 @@
 	  <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
 	  <FileVersion>$(VersionPrefix)</FileVersion>
 	  <Description>Contains Subscription Types and Models for Twitch's EventSub system</Description>
-	  <PackageIconUrl>https://cdn.syzuna-programs.de/images/twitchlib.png</PackageIconUrl>
+      <PackageIcon>twitchlib.png</PackageIcon>
 	  <PackageProjectUrl>https://github.com/TwitchLib/TwitchLib.EventSub.Websockets</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/TwitchLib/TwitchLib.EventSub.Websockets</RepositoryUrl>
 	  <RepositoryType>Git</RepositoryType>
@@ -30,6 +30,7 @@
 	 
   <ItemGroup>
 	  <None Include="..\README.md" Pack="true" PackagePath="\" />
+	  <None Include="..\twitchlib.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 	 
   <ItemGroup>
