@@ -20,6 +20,6 @@ jobs:
    - name: Build TwitchLib.EventSub.Core
      run: dotnet build -c Release --no-restore
    - name: Pack TwitchLib.EventSub.Core
-     run: dotnet pack TwitchLib.EventSub.Core.sln -v normal -c Release -o nugets --no-build
+     run: dotnet pack -v normal -c Release -o nugets --no-build
    - name: Push to Nuget
      run: dotnet nuget push "./nugets/*.nupkg" -k ${{ secrets.API_NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
