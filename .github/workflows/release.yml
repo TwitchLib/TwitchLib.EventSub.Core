@@ -10,16 +10,16 @@ jobs:
    runs-on: ubuntu-latest
 
    steps:
-   - uses: actions/checkout@v4
+   - uses: actions/checkout@v5
    - name: Setup .NET
-     uses: actions/setup-dotnet@v3
+     uses: actions/setup-dotnet@v5
      with:
-       dotnet-version: 8.0.x
+       dotnet-version: 10.0.x
    - name: Restore dependencies
      run: dotnet restore
    - name: Build TwitchLib.EventSub.Core
      run: dotnet build -c Release --no-restore
    - name: Pack TwitchLib.EventSub.Core
-     run: dotnet pack TwitchLib.EventSub.Core.sln -v normal -c Release -o nugets --no-build
+     run: dotnet pack -v normal -c Release -o nugets --no-build
    - name: Push to Nuget
      run: dotnet nuget push "./nugets/*.nupkg" -k ${{ secrets.API_NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
