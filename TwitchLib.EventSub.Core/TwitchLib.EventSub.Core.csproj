@@ -17,7 +17,11 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <Copyright>Copyright 2025</Copyright>
 	  <PackageTags>twitch library events eventsub subscriptiontypes c# csharp net</PackageTags>
-	  <PackageReleaseNotes></PackageReleaseNotes>
+	  <PackageReleaseNotes>.NET 10 update (Removed obsolete versions of .NET)
+removed obsolete class/props
+added new model
+added event for Subscription Types
+	  </PackageReleaseNotes>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <NeutralLanguage>en-US</NeutralLanguage>
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
