@@ -106,6 +106,9 @@ namespace TwitchLib.EventSub.Core.SubscriptionTypes.Channel
         /// Has no effect if the message is not sent during a shared chat session.
         /// </summary>
         public bool? IsSourceOnly { get; set; }
+
+        // added 2024‑05‑22, 
+        public string? ChannelPointsAnimationId { get; set; }
       
         /// <summary>
         /// Returns true if viewer is a subscriber
