@@ -23,6 +23,7 @@ public class Subscription
     public static Subscription AutomodSettingsUpdate { get; } = new("automod.settings.update", "1");
     public static Subscription AutomodTermsUpdate { get; } = new("automod.terms.update", "1");
     public static Subscription ChannelBitsUse { get; } = new("channel.bits.use", "1");
+    public static Subscription ChannelCustomPowerUpsRedemptionAdd { get; } = new("channel.custom_power_up_redemption.add", "1");
     public static Subscription ChannelUpdate { get; } = new("channel.update", "2");
     public static Subscription ChannelFollow { get; } = new("channel.follow", "2");
     public static Subscription ChannelAdBreakBegin { get; } = new("channel.ad_break.begin", "1");
