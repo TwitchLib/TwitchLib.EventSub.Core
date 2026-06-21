@@ -15,7 +15,7 @@
 	  <RepositoryUrl>https://github.com/TwitchLib/TwitchLib.EventSub.Websockets</RepositoryUrl>
 	  <RepositoryType>Git</RepositoryType>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <Copyright>Copyright 2025</Copyright>
+	  <Copyright>Copyright $([System.DateTimeOffset]::Now.Year)</Copyright>
 	  <PackageTags>twitch library events eventsub subscriptiontypes c# csharp net</PackageTags>
 	  <PackageReleaseNotes>
 	  </PackageReleaseNotes>
