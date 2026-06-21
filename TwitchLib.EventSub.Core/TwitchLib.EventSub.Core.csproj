@@ -11,8 +11,8 @@
 	  <FileVersion>$(VersionPrefix)</FileVersion>
 	  <Description>Contains Subscription Types and Models for Twitch's EventSub system</Description>
       <PackageIcon>twitchlib.png</PackageIcon>
-	  <PackageProjectUrl>https://github.com/TwitchLib/TwitchLib.EventSub.Websockets</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/TwitchLib/TwitchLib.EventSub.Websockets</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/TwitchLib/TwitchLib.EventSub.Core</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/TwitchLib/TwitchLib.EventSub.Core</RepositoryUrl>
 	  <RepositoryType>Git</RepositoryType>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <Copyright>Copyright $([System.DateTimeOffset]::Now.Year)</Copyright>
