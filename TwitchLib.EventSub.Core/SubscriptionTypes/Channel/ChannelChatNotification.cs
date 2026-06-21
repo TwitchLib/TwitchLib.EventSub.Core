@@ -73,6 +73,7 @@ public sealed class ChannelChatNotification
     /// <para>announcement</para>
     /// <para>bits_badge_tier</para>
     /// <para>charity_donation</para>
+    /// <para>modiversary</para>
     /// <para>shared_chat_sub</para>
     /// <para>shared_chat_resub</para>
     /// <para>shared_chat_sub_gift</para>
@@ -82,6 +83,8 @@ public sealed class ChannelChatNotification
     /// <para>shared_chat_raid</para>
     /// <para>shared_chat_pay_it_forward</para>
     /// <para>shared_chat_announcement</para>
+    /// <para>shared_chat_modiversary</para>
+    /// <para>unknown</para>
     /// </summary>
     public string NoticeType { get; set; } = string.Empty;
     /// <summary>
