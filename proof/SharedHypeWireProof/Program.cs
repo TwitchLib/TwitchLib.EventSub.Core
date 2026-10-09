@@ -24,6 +24,10 @@ foreach (var kind in new[] { "begin", "progress", "end" })
     var errors = new List<string>();
     var callbacks = new List<string>();
     var awaitedCallbacks = 0;
+    var callbackEntered = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+    var releaseCallback = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+    var callbackExited = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+    var deadline = TimeSpan.FromSeconds(5);
     webhooks.Error += (_, error) => { errors.Add(error.Reason); return Task.CompletedTask; };
 
     async Task Observe(string actualKind, EventSubMetadata actualMetadata, bool isShared,
@@ -40,16 +44,19 @@ foreach (var kind in new[] { "begin", "progress", "end" })
             Check(Equals((object)participants[0].BroadcasterUserLogin, "alice"), "alphabetic login is preserved");
             Check(Equals((object)participants[0].BroadcasterUserName, "Alice"), "display name is preserved");
         }
-        await Task.Yield();
+        callbackEntered.TrySetResult();
+        await releaseCallback.Task.WaitAsync(deadline);
         awaitedCallbacks++;
+        callbackExited.TrySetResult();
     }
 
-    webhooks.ChannelHypeTrainBeginV2 += (_, args) => Observe("begin", args.Metadata,
-        args.Payload.Event.IsSharedTrain, args.Payload.Event.SharedTrainParticipants);
-    webhooks.ChannelHypeTrainProgressV2 += (_, args) => Observe("progress", args.Metadata,
-        args.Payload.Event.IsSharedTrain, args.Payload.Event.SharedTrainParticipants);
-    webhooks.ChannelHypeTrainEndV2 += (_, args) => Observe("end", args.Metadata,
-        args.Payload.Event.IsSharedTrain, args.Payload.Event.SharedTrainParticipants);
+    Task ForwardCallback(Func<Task> callback) => callback();
+    webhooks.ChannelHypeTrainBeginV2 += (_, args) => ForwardCallback(() => Observe("begin", args.Metadata,
+        args.Payload.Event.IsSharedTrain, args.Payload.Event.SharedTrainParticipants));
+    webhooks.ChannelHypeTrainProgressV2 += (_, args) => ForwardCallback(() => Observe("progress", args.Metadata,
+        args.Payload.Event.IsSharedTrain, args.Payload.Event.SharedTrainParticipants));
+    webhooks.ChannelHypeTrainEndV2 += (_, args) => ForwardCallback(() => Observe("end", args.Metadata,
+        args.Payload.Event.IsSharedTrain, args.Payload.Event.SharedTrainParticipants));
 
     var body = $$"""
         {
@@ -70,7 +77,29 @@ foreach (var kind in new[] { "begin", "progress", "end" })
         }
         """;
     await using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
-    await webhooks.ProcessNotificationAsync(metadata, stream);
+    var processing = webhooks.ProcessNotificationAsync(metadata, stream);
+    try
+    {
+        await callbackEntered.Task.WaitAsync(deadline);
+        Check(awaitedCallbacks == 0, "the callback is still held before its explicit release");
+        try
+        {
+            // A detached handler returns while this gate is closed, regardless of when its continuation runs.
+            await processing.WaitAsync(TimeSpan.FromMilliseconds(100));
+            Check(false, "parser returned while the callback release gate was closed");
+        }
+        catch (TimeoutException) { /* Expected: the parser still owns the held callback. */ }
+    }
+    catch (TimeoutException) { Check(false, "callback did not enter within the finite deadline"); }
+    finally { releaseCallback.TrySetResult(); }
+
+    try { await processing.WaitAsync(deadline); }
+    catch (TimeoutException) { Check(false, "parser did not settle within the finite deadline after callback release"); }
+    if (callbackEntered.Task.IsCompleted)
+    {
+        try { await callbackExited.Task.WaitAsync(deadline); }
+        catch (TimeoutException) { Check(false, "callback did not finish within the finite deadline after release"); }
+    }
 
     // TwitchLib catches parser exceptions and returns normally. Callback and error assertions are essential.
     Check(callbacks.SequenceEqual(new[] { kind }), "correct event callback runs exactly once");

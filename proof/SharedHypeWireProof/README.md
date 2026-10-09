@@ -8,7 +8,8 @@ Core package. It makes no provider connections and needs no credentials.
 Every notification contains participant ID `"4567891234"` (above Int32 range),
 login `"alice"`, and display name `"Alice"`. It requires the corresponding awaited
 callback exactly once, unchanged metadata and string fields, and zero parser
-errors. The original numeric DTO compiles with the fixture but fails at runtime:
+errors. An explicit callback release gate must hold the parser task open until
+release; all waits have finite deadlines. The original numeric DTO compiles with the fixture but fails at runtime:
 TwitchLib emits `Application_Error` and returns without invoking the callback.
 
 Run from the repository root, choosing a task-owned package cache:
@@ -32,6 +33,12 @@ For the negative control, temporarily restore only
 `TwitchLib.EventSub.Core/Models/HypeTrain/SharedTrainParticipants.cs` from the
 original source commit, rebuild, and require exit code 1. Restore the correction
 exactly, rebuild, and require exit code 0. Preserve both logs.
+
+For the callback-ownership negative control, temporarily change only
+`ForwardCallback` to `{ _ = callback(); return Task.CompletedTask; }`, rebuild,
+and require exit code 1 with `parser returned while the callback release gate was
+closed` for all three cases. Restore that one line exactly, rebuild, and require
+exit code 0. The callback is always released and drained, including failed cases.
 
 The fixture covers the SDK wire boundary. It does not prove application owner
 routing, canonical fact publication, durable receipt settlement, or live delivery.
