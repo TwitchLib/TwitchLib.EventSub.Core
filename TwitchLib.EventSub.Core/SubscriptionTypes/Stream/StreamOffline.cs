@@ -8,6 +8,10 @@
 public sealed class StreamOffline
 {
     /// <summary>
+    /// The id of the stream.
+    /// </summary>
+    public string Id { get; set; } = string.Empty;
+    /// <summary>
     /// The broadcaster's user id.
     /// </summary>
     public string BroadcasterUserId { get; set; } = string.Empty;
