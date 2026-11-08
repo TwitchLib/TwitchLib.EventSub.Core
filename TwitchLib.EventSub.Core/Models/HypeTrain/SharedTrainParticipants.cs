@@ -5,15 +5,15 @@ public class SharedTrainParticipants
     /// <summary>
     /// The ID of the broadcaster participating in the shared Hype Train.
     /// </summary>
-    public int BroadcasterUserId { get; set; }
+    public string BroadcasterUserId { get; set; } = string.Empty;
 
     /// <summary>
     /// The login of the broadcaster participating in the shared Hype Train.
     /// </summary>
-    public int BroadcasterUserLogin { get; set; }
+    public string BroadcasterUserLogin { get; set; } = string.Empty;
 
     /// <summary>
     /// The display name of the broadcaster participating in the shared Hype Train.
     /// </summary>
-    public int BroadcasterUserName { get; set; }
+    public string BroadcasterUserName { get; set; } = string.Empty;
 }
